@@ -1,0 +1,8 @@
+<div>
+  <h1><%= @album.album_name %></h1>
+  <%= @album.description %>
+  <form action="/albums/<%= @album.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete!">
+  </form>
+</div>
