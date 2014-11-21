@@ -1,5 +1,7 @@
+# ALL
 get '/albums/all' do
-  @albums = Album.all
+  user = User.find(session[:user_id])
+  @albums = user.albums
   erb :'/albums/all'
 end
 # CREATE
@@ -8,16 +10,13 @@ get '/albums/new' do
 end
 
 post '/albums' do
-  puts "PARAMS:"
-  p "*" * 100
-  p params
-  puts "ALBUM:"
-  p "*" * 100
   album = Album.create(params[:album])
+  user = User.find(session[:user_id])
+  user.albums << album
   # implement album to user association using cookies after being implemented
-  p album
   redirect("/albums/#{album.id}")
 end
+
 #NO UPDATE method -- add later
 
 # READ
