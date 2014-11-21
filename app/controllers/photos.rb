@@ -19,3 +19,9 @@ post '/photos/upload' do
   redirect("/albums/#{album.id}")
 
 end
+
+delete '/photos/:id' do |id|
+  photo = Photo.find(id)
+  photo.destroy
+  redirect('/albums')
+end
