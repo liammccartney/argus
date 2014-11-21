@@ -11,14 +11,6 @@ end
 
 # UPDATE--will complete after MVP is created
 
-get '/users/:id/edit' do
-
-end
-
-put '/users/:id' do
-
-end
-
 # DESTROY
 delete '/users/:id' do |id|
   album = Album.find(id)
