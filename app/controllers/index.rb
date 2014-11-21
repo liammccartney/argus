@@ -1,15 +1,9 @@
 get '/' do
   # Look in app/views/index.erb
-  erb :index
-end
-
-get '/secret' do
-
-  if session[:user_id] == nil
-    session[:error] = set_error('You Must Login to see the Secret Page')
-    redirect('/login')
+  if session[:user_id]
+    redirect("/users/#{session[:user_id]}")
   else
-    erb :secret
+    erb :index
   end
 end
 
