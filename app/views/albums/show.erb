@@ -1,8 +1,23 @@
 <div>
   <h1><%= @album.album_name %></h1>
   <%= @album.description %>
-  <form action="/albums/<%= @album.id %>" method="POST">
+
+    <% @album.photos.each do |photo| %> 
+      <img src="<%= photo.photo_url %>">
+    <%end%>
+
+  <form action="/photos/upload" method="GET">
+    <input type="hidden" name="album[id]" value="<%= @album.id %>">
+    <input type="submit" value="Upload a Photo!">
+  </form>
+
+  <form action="/albums<%= @album.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete!">
   </form>
 </div>
+
+
+<!-- PS:
+User wants to upload a photo
+  we want the photo to be associated with a specific album -->
