@@ -2,7 +2,7 @@
   <h1><%= @album.album_name %></h1>
   <%= @album.description %>
 
-    <% @album.photos.each do |photo| %> 
+    <% @album.photos.each do |photo| %>
       <img src="<%= photo.photo_url %>">
     <%end%>
 
@@ -11,7 +11,7 @@
     <input type="submit" value="Upload a Photo!">
   </form>
 
-  <form action="/albums<%= @album.id %>" method="POST">
+  <form action="/albums/<%= @album.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete!">
   </form>
