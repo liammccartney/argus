@@ -1,0 +1,9 @@
+<div>
+  <h1>Upload Image</h1>
+  <form action="/photos/upload" method="POST" enctype="multipart/form-data">
+    <input type='text' name='photo[photo_name]'>
+    <input type='hidden' name='id' value="<%=@album.id%>">
+    <input type="file" name="file">
+    <input type="submit" value="Upload Image!">
+  </form>
+</div>
