@@ -13,7 +13,6 @@ post '/albums' do
   album = Album.create(params[:album])
   user = User.find(session[:user_id])
   user.albums << album
-  # implement album to user association using cookies after being implemented
   redirect("/albums/#{album.id}")
 end
 
@@ -22,7 +21,6 @@ get '/albums/:id' do
   @album = Album.find(params[:id])
   erb :'/albums/show'
 end
-
 
 # UPDATE
 get '/albums/:id/update' do

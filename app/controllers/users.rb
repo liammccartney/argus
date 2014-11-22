@@ -3,6 +3,23 @@ get '/users/all' do
   @users = Users.all
 end
 
+#CREATE
+
+get '/signup' do
+  erb :'auth/signup'
+end
+
+post '/signup' do
+  new_user = User.new(params[:user])
+ if new_user.save
+  session[:user_id] = new_user.id
+  redirect('/')
+ else
+  session[:error]= new_user.errors.messages
+    redirect('/signup')
+  end
+end
+
 # READ
 get '/users/:id' do |id|
   @user = User.find(id)
@@ -10,7 +27,6 @@ get '/users/:id' do |id|
 end
 
 # UPDATE
-
 get '/users/:id/update' do |id|
   @user = User.find(id)
   erb :'users/update'

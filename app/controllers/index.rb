@@ -1,24 +1,8 @@
 get '/' do
-  # Look in app/views/index.erb
   if session[:user_id]
     redirect("/users/#{session[:user_id]}")
   else
     erb :index
-  end
-end
-
-get '/signup' do
-  erb :'auth/signup'
-end
-
-post '/signup' do
-  new_user = User.new(params[:user])
- if new_user.save
-  session[:user_id] = new_user.id
-  redirect('/')
- else
-  session[:error]= new_user.errors.messages
-    redirect('/signup')
   end
 end
 
