@@ -9,7 +9,18 @@ get '/users/:id' do |id|
   erb :'users/show'
 end
 
-# UPDATE--will complete after MVP is created
+# UPDATE
+
+get '/users/:id/update' do |id|
+  @user = User.find(id)
+  erb :'users/update'
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  @user.update(params[:user])
+  redirect("/users/#{@user.id}")
+end
 
 # DESTROY
 delete '/users/:id' do |id|

@@ -1,0 +1,12 @@
+<div>
+<form action="/users/<%= @user.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  First Name:<br>
+    <input type="text" name="user[first_name]"><br>
+  Last Name:<br>
+    <input type="text" name="user[last_name]"><br>
+  Email:<br>
+    <input type="text" name="user[email]"><br>
+<input type="submit" value="Update!!">
+</form>
+</div>

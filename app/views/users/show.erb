@@ -2,5 +2,6 @@
 Hello, <%= @user.first_name %>!
 <br>
 <a href="/albums/all">Go here to look at your albums</a><br>
-<a href="/albums/new">Create an album!</a>
+<a href="/albums/new">Create an album!</a><br>
+<a href="/users/<%= @user.id %>/update">Edit Your Profile!</a>
 </div>

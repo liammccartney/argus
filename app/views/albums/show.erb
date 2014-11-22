@@ -1,14 +1,22 @@
 <div>
   <h1><%= @album.album_name %></h1>
-  <%= @album.description %>
+  <%= @album.description %><br>
+
 
     <% @album.photos.each do |photo| %>
-      <img src="<%= photo.photo_url %>">
+      <a href="/photos/<%= photo.id %>"><img src="<%= photo.photo_url %>"></a>
     <%end%>
-
+    <br>
+    <form action="/albums/all" method="GET">
+      <input type="submit" value="Return to Albums">
+    </form>
   <form action="/photos/upload" method="GET">
     <input type="hidden" name="album[id]" value="<%= @album.id %>">
     <input type="submit" value="Upload a Photo!">
+  </form>
+
+  <form action="/albums/<%= @album.id %>/update" method="GET">
+    <input type="submit" value="Update This Album">
   </form>
 
   <form action="/albums/<%= @album.id %>" method="POST">

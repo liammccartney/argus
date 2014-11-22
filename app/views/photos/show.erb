@@ -1,0 +1,6 @@
+<img src="<%= @photo.photo_url %>">
+
+<form action="/photos/<%= @photo.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete!">
+</form>

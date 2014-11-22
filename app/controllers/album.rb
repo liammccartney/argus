@@ -17,12 +17,23 @@ post '/albums' do
   redirect("/albums/#{album.id}")
 end
 
-#NO UPDATE method -- add later
-
 # READ
 get '/albums/:id' do
   @album = Album.find(params[:id])
   erb :'/albums/show'
+end
+
+
+# UPDATE
+get '/albums/:id/update' do
+  @album = Album.find(params[:id])
+  erb :'/albums/update'
+end
+
+put '/albums/:id' do
+  @album = Album.find(params[:id])
+  @album.update(params[:album])
+  redirect("/albums/#{@album.id}")
 end
 
 # DELETE

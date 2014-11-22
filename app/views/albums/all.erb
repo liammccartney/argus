@@ -1,7 +1,15 @@
 <div>
-<ol>
-<% @albums.each do |album| %>
-  <li><a href="/albums/<%= album.id %>"><%= album.album_name %></a></li>
+  <ol>
+    <% @albums.each do |album| %>
+      <% first_photo_url = "/img/default-image.png" %>
+
+      <% if album.photos.empty? == false %>
+        <% first_photo_url =  album.photos.first.photo_url %>
+      <% end %>
+  <li>
+    <a href="/albums/<%= album.id %>"><%= album.album_name %><br><img src="<%= first_photo_url %>">
+    </a>
+  </li>
 <% end %>
 </ol>
 </div>

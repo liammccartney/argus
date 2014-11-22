@@ -20,8 +20,13 @@ post '/photos/upload' do
 
 end
 
+get '/photos/:id' do |id|
+  @photo = Photo.find(id)
+  erb :'photos/show'
+end
+
 delete '/photos/:id' do |id|
   photo = Photo.find(id)
   photo.destroy
-  redirect('/albums')
+  redirect('/albums/all')
 end
