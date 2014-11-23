@@ -40,13 +40,15 @@
             <nav>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li>
+
                   <% if current_user %>
-                    <a href="/logout">Logout</a>
+                    <li><a href="/albums/all">Albums</a></li>
+                    <li><a href="/albums/new">New Album</a></li>
+                    <li><a href="/logout">Logout</a></li>
                   <% else %>
-                    <a href="/login">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                   <% end %>
-                <li><a href="#">Contact</a></li>
+
               </ul>
             </nav>
           </div>

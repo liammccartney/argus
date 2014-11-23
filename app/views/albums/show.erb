@@ -1,22 +1,18 @@
-<div class="inner cover">
+<div >
   <h1><%= @album.album_name %></h1>
   <%= @album.description %><br>
-  <div class="row">
-    <div>
-  <form action="/albums/all" method="GET">
-    <input type="submit" class="btn btn-lg btn-default" value="Return to Albums">
-  </form>
-</div>
-<div>
+<div class="col-xs-3">
   <form action="/photos/upload" method="GET">
     <input type="hidden" name="album[id]" value="<%= @album.id %>">
     <input type="submit" class="btn btn-lg btn-default" value="Upload a Photo!">
   </form>
 </div>
+<div class="col-xs-3">
   <form action="/albums/<%= @album.id %>/update" method="GET">
     <input type="submit" class="btn btn-lg btn-default" value="Update This Album">
   </form>
-<div>
+</div>
+<div class="col-xs-3">
   <form action="/albums/<%= @album.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" class="btn btn-lg btn-default" value="Delete!">
