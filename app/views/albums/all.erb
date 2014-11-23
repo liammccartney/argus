@@ -1,5 +1,5 @@
-<div>
-  <ol>
+<div class="inner cover">
+  <ol class="album-list">
     <% @albums.each do |album| %>
       <% first_photo_url = "/img/default-image.png" %>
 
@@ -7,9 +7,14 @@
         <% first_photo_url =  album.photos.first.photo_url %>
       <% end %>
   <li>
-    <a href="/albums/<%= album.id %>"><%= album.album_name %><br><img src="<%= first_photo_url %>">
+    <div class="img-link">
+    <a href="/albums/<%= album.id %>" class="thumbnail">
+      <img src="<%= first_photo_url %>" class="img-responsive">
+      <h1 class="img-text"><%= album.album_name %></h1>
     </a>
+  </div>
   </li>
 <% end %>
 </ol>
 </div>
+

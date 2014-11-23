@@ -1,7 +1,8 @@
-<div>
-Hello, <%= @user.first_name %>!
+<div class="inner cover">
+<h1 class="cover-heading">Hello, <%= @user.first_name %>!</h1>
 <br>
 <a href="/albums/all">Go here to look at your albums</a><br>
 <a href="/albums/new">Create an album!</a><br>
 <a href="/users/<%= @user.id %>/update">Edit Your Profile!</a>
 </div>
+

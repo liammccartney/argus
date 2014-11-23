@@ -1,37 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
-  <!-- Load Vollkorn font -->
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <title>Argus</title>
 
-  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="/css/application.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/cover.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="/js/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
+
 <body>
-<%= display_error %>
-<div id="content">
-  <header>
-    <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
-    <div id="login-toolbar">
-      <% if current_user %>
-        <a href="/logout">Logout</a>
-      <% else %>
-        <a href="/login">Login</a> | <a href="/signup">Signup</a>
-      <% end %>
-  </header>
-  <%= yield %>
-</div>
+
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Argus</h3>
+            <nav>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li>
+                  <% if current_user %>
+                    <a href="/logout">Logout</a>
+                  <% else %>
+                    <a href="/login">Login</a></li>
+                  <% end %>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+          <%= yield %>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/docs.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
