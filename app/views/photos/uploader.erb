@@ -1,11 +1,15 @@
 <div>
   <h1>Upload Image</h1>
   <form action="/photos/upload" method="POST" enctype="multipart/form-data">
-    <p>Enter Name (Optional)</p><br>
-    <input type='text' name='photo[photo_name]'>
-    <input type='hidden' name='id' value="<%=@album.id%>"><br>
-    <input type="file" name="file"><br>
+    <input type='text' name='photo[photo_name]' placeholder="Name Your Photo(Optional)" class="form-control">
+    <input type='hidden' name='id' value="<%=@album.id%>">
+
+    <div class="fileUpload btn bt-lg btn-default">
+      Choose a Photo
+      <input type="file" name="file" class="upload">
+    </div>
     <br>
-    <input type="submit" class="btn btn-lg btn-default" value="Upload Image!">
+    <input type="submit" class="btn btn-lg btn-default" value="Add Photo to Album <%= @album.album_name %>">
   </form>
 </div>
+

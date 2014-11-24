@@ -1,6 +1,7 @@
 get '/' do
   if session[:user_id]
-    redirect("/users/#{session[:user_id]}")
+    @user = User.find(session[:user_id])
+    redirect("/albums/all")
   else
     erb :index
   end

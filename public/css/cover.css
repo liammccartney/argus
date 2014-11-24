@@ -11,12 +11,14 @@ a:hover {
 
 /* Custom default button */
 .btn-default,
-.btn-default:hover,
 .btn-default:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
   background-color: #fff;
   border: 1px solid #fff;
+}
+.btn-default:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 
@@ -125,6 +127,26 @@ background-color: #333333;
 
 .album-list {
   list-style: none;
+}
+
+.photo-grid {
+  margin-top: 5%;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 /*

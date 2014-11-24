@@ -1,49 +1,39 @@
-<div >
-  <h1><%= @album.album_name %></h1>
-  <%= @album.description %><br>
-<div class="col-xs-3">
-  <form action="/photos/upload" method="GET">
-    <input type="hidden" name="album[id]" value="<%= @album.id %>">
-    <input type="submit" class="btn btn-lg btn-default" value="Upload a Photo!">
-  </form>
-</div>
-<div class="col-xs-3">
-  <form action="/albums/<%= @album.id %>/update" method="GET">
-    <input type="submit" class="btn btn-lg btn-default" value="Update This Album">
-  </form>
-</div>
-<div class="col-xs-3">
-  <form action="/albums/<%= @album.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" class="btn btn-lg btn-default" value="Delete!">
-  </form>
-</div>
-
-
-    <% @album.photos.each_with_index do |photo, index| %>
-    <!-- <div class="row"> -->
-      <div class="col-xs-3">
-        <a href="/photos/<%= photo.id %>" class="thumbnail">
-          <img src="<%= photo.photo_url %>" class="img-responsive">
-        </a>
-      </div>
-    <!-- </div> -->
-    <%end%>
+<div>
+  <div>
+    <h1><%= @album.album_name %></h1>
+    <%= @album.description %><br><br>
   </div>
 
-    <br>
+  <div class="btn-group">
+    <ul class="nav masthead-nav">
+      <li>
+        <form action="/photos/upload" method="GET">
+          <input type="hidden" name="album[id]" value="<%= @album.id %>">
+          <input type="submit" class="btn btn-default" value="Upload">
+        </form>
+      </li>
+      <li>
+        <form action="/albums/<%= @album.id %>/update" method="GET">
+          <input type="submit" class="btn btn-default" value="Update">
+        </form>
+      </li>
+      <li>
+        <form action="/albums/<%= @album.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="btn btn-default" value="Delete">
+        </form>
+      </li>
+    </ul>
+  </div>
 
 
-<!-- <div class="container">
-  <h1>Bootstrap 3 Responsive Image Grid</h1>
-  <hr>
-
-  <h2>Non-stacking grid example<p class="lead">Uses the tiny <code>.col-*</code> grid classes</p></h2>
-  <p>This layout displays <b>4 images per row</b>. Bootstrap 3 sizes images "responsively" using the <code>img-responsive</code> CSS class. As browser width shrinks, the columns and images scale down accordingly...</p>
-  <div class="row">
-    <div class="col-xs-3">
-        <a href="#" class="thumbnail">
-             <img src="http://placehold.it/350x150" class="img-responsive">
-        </a>
-    </div>
-    </div> -->
+  <div class="photo-grid">
+      <% @album.photos.each do |photo| %>
+        <div class="col-xs-3">
+          <a href="/photos/<%= photo.id %>" class="thumbnail">
+            <img src="<%= photo.photo_url %>" class="img-responsive">
+          </a>
+        </div>
+      <%end%>
+  </div>
+</div>

@@ -2,10 +2,10 @@
 <form action="/albums/<%= @album.id %>" method="POST">
   <input type="hidden" name="_method" value="PUT">
 Album Name:<br>
-<input type="text" name="album[album_name]" value="<%= @album.album_name %>"><br>
+<input type="text" name="album[album_name]" value="<%= @album.album_name %>" class="form-control"><br>
 Description:<br>
-<textarea name="album[description]"><%= @album.description %></textarea><br>
+<textarea name="album[description]" rows="5" class="form-control"><%= @album.description %></textarea><br>
 <br>
-<input type="submit" value="Update!!">
+<input type="submit" class="btn btn-lg btn-default" value="Update Album <%= @album.album_name %>">
 </form>
 </div>

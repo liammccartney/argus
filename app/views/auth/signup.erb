@@ -1,14 +1,16 @@
 <%= display_error %>
+<div class="form-group">
 <form action='/signup' method="POST">
   First Name:<br>
-  <input type="text" name="user[first_name]"><br>
+  <input type="text" name="user[first_name]" class="form-control" placeholder="Enter Your First Name"><br>
   Last Name:<br>
-  <input type="text" name="user[last_name]"><br>
+  <input type="text" name="user[last_name]" class="form-control" placeholder="Enter Your Last Name"><br>
   Email:<br>
-  <input type="text" name="user[email]"><br>
+  <input type="text" name="user[email]" class="form-control" placeholder="Enter Your Email"><br>
   Password:<br>
-  <input type="password" name="user[password]"><br>
+  <input type="password" name="user[password]" class="form-control" placeholder="Create Your Password"><br>
   Confirm Password:<br>
-  <input type="password" name="user[password_confirmation]"><br><br>
+  <input type="password" name="user[password_confirmation]" class="form-control" placeholder="Confirm Your Password"><br><br>
   <input type="submit" value="Signup!" class="btn btn-lg btn-default">
 </form>
+</div>

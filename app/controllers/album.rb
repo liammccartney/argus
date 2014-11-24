@@ -1,7 +1,7 @@
 # ALL
 get '/albums/all' do
-  user = User.find(session[:user_id])
-  @albums = user.albums
+  @user = User.find(session[:user_id])
+  @albums = @user.albums
   erb :'/albums/all'
 end
 # CREATE
@@ -10,10 +10,16 @@ get '/albums/new' do
 end
 
 post '/albums' do
-  album = Album.create(params[:album])
-  user = User.find(session[:user_id])
-  user.albums << album
-  redirect("/albums/#{album.id}")
+  album = Album.new(params[:album])
+
+  if album.save
+    user = User.find(session[:user_id])
+    user.albums << album
+    redirect("/albums/#{album.id}")
+  else
+    session[:error] = album.errors.messages
+    redirect("/albums/new")
+  end
 end
 
 # READ
